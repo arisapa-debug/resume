@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - อริษา ปานพิมพ์ (ครีม)</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --secondary: #06B6D4;
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --bg-card-hover: #334155;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #38BDF8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .resume-container {
+            max-width: 950px;
+            width: 100%;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hero / Header Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(6, 182, 212, 0.15) 100%);
+            padding: 40px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(79, 70, 229, 0.3);
+            border: 1px solid var(--primary);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .profile-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .profile-info h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+
+        /* ส่วนแสดงรูปภาพโปรไฟล์ */
+        .avatar-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        /* Main Grid Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+
+        @media (max-width: 800px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Left */
+        .sidebar {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 32px 24px;
+            border-right: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title i {
+            color: var(--accent);
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .info-item i {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .info-content label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .info-content span, .info-content a {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .info-content a:hover {
+            color: var(--accent);
+        }
+
+        /* Interests Tags */
+        .interests-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Content Right */
+        .content-body {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Education Card */
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .edu-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .edu-card p {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .skill-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .skill-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+        }
+
+        .tool-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 14px 10px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-box:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--secondary);
+        }
+
+        .tool-box i {
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .tool-box span {
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+            width: fit-content;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <!-- Hero Header -->
+        <header class="hero-section">
+            <div class="profile-info">
+                <span class="badge"><i class="fa-solid fa-laptop-code"></i> IT Student & Developer</span>
+                <h1>อริษา ปานพิมพ์</h1>
+                <h2>ชื่อเล่น: ครีม | ตำแหน่ง: IT</h2>
+                <p class="about-text">
+                    นักศึกษาระดับปริญญาตรีที่มีความสนใจด้านเทคโนโลยีสารสนเทศ มีความตั้งใจเรียนรู้สิ่งใหม่ ๆ สามารถทำงานร่วมกับผู้อื่นได้ดี และพร้อมพัฒนาทักษะเพื่อนำไปประยุกต์ใช้ในการทำงานด้าน IT
+                </p>
+            </div>
+            <!-- ส่วนกล่องรูปภาพที่แก้ไขเรียบร้อยแล้ว -->
+            <div class="avatar-box">
+                <img src="profile.jpg" alt="รูปโปรไฟล์ อริษา ปานพิมพ์" class="profile-img">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="section-title">
+                    <i class="fa-solid fa-address-card"></i> ข้อมูลส่วนตัว
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <div class="info-content">
+                            <label>วันเกิด</label>
+                            <span>30 มิถุนายน 2548</span>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div class="info-content">
+                            <label>โทรศัพท์</label>
+                            <a href="tel:0963317666">096-331-7666</a>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="info-content">
+                            <label>อีเมล</label>
+                            <a href="mailto:arisa.pa@rmuti.ac.th">arisa.pa@rmuti.ac.th</a>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="info-content">
+                            <label>ที่อยู่</label>
+                            <span>ขอนแก่น</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="section-title">
+                    <i class="fa-solid fa-heart"></i> ความสนใจ
+                </div>
+                <div class="interests-tags">
+                    <span class="tag">Web Development</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Computer</span>
+                    <span class="tag">Digital Tech</span>
+                </div>
+            </aside>
+
+            <!-- Main Body -->
+            <main class="content-body">
+                <!-- Education -->
+                <section>
+                    <div class="section-title">
+                        <i class="fa-solid fa-graduation-cap"></i> ประวัติการศึกษา
+                    </div>
+                    <div class="edu-card">
+                        <h3>ปริญญาตรี (การศึกษาระดับอุดมศึกษา)</h3>
+                        <p><i class="fa-solid fa-university"></i> มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน (RMUTI)</p>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section>
+                    <div class="section-title">
+                        <i class="fa-solid fa-code"></i> ทักษะทางเทคนิค (Skills)
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <span class="skill-name">HTML</span>
+                            <i class="fa-brands fa-html5 skill-icon"></i>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-name">CSS</span>
+                            <i class="fa-brands fa-css3-alt skill-icon"></i>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-name">JavaScript</span>
+                            <i class="fa-brands fa-js skill-icon"></i>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-name">MS Office</span>
+                            <i class="fa-solid fa-box-archive skill-icon"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Software/Tools -->
+                <section>
+                    <div class="section-title">
+                        <i class="fa-solid fa-wrench"></i> โปรแกรม & เครื่องมือ (Tools)
+                    </div>
+                    <div class="tools-grid">
+                        <div class="tool-box">
+                            <i class="fa-solid fa-pen-nib"></i>
+                            <span>Canva</span>
+                        </div>
+                        <div class="tool-box">
+                            <i class="fa-solid fa-file-word"></i>
+                            <span>Word</span>
+                        </div>
+                        <div class="tool-box">
+                            <i class="fa-solid fa-file-excel"></i>
+                            <span>Excel</span>
+                        </div>
+                        <div class="tool-box">
+                            <i class="fa-solid fa-file-powerpoint"></i>
+                            <span>PowerPoint</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact CTA -->
+                <section>
+                    <a href="mailto:arisa.pa@rmuti.ac.th" class="cta-btn">
+                        <i class="fa-solid fa-paper-plane"></i> ติดต่อคุณครีม
+                    </a>
+                </section>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
