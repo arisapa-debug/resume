@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Demo - Git Workflow Test</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            margin-bottom: 0.75rem;
+            color: #38bdf8;
+        }
+
+        p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-box {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #4ade80;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+        }
+
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <span class="badge" id="branchBadge">Branch: Master</span>
+        <h1 id="titleText">HTML Demo Page</h1>
+        <p id="descText">โค้ดตัวอย่างสำหรับทดสอบการทำงานบน VS Code ร่วมกับ Git Branch (Master / Slave)</p>
+        
+        <div class="status-box" id="statusBox">
+            Status: Ready for Git Commit & Push
+        </div>
+
+        <button onclick="toggleBranch()">คลิกเพื่อสลับโหมดการทำงาน</button>
+    </div>
+
+    <script>
+        let isSlaveMode = false;
+
+        function toggleBranch() {
+            const badge = document.getElementById('branchBadge');
+            const title = document.getElementById('titleText');
+            const desc = document.getElementById('descText');
+            const status = document.getElementById('statusBox');
+
+            isSlaveMode = !isSlaveMode;
+
+            if (isSlaveMode) {
+                badge.innerText = "Branch: Slave";
+                badge.style.backgroundColor = "#e11d48";
+                title.innerText = "Slave Branch Version";
+                desc.innerText = "กำลังอยู่ในโหมดพัฒนาบนสาขาย่อย (Slave) พร้อมทดสอบ Commit และ Push";
+                status.innerText = "Status: Changes uncommitted on 'slave'";
+                status.style.color = "#f43f5e";
+            } else {
+                badge.innerText = "Branch: Master";
+                badge.style.backgroundColor = "#3b82f6";
+                title.innerText = "HTML Demo Page";
+                desc.innerText = "โค้ดตัวอย่างสำหรับทดสอบการทำงานบน VS Code ร่วมกับ Git Branch (Master / Slave)";
+                status.innerText = "Status: Ready for Git Commit & Push";
+                status.style.color = "#4ade80";
+            }
+        }
+    </script>
+
+</body>
+</html>
